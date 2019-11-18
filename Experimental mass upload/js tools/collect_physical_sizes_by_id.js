@@ -4,9 +4,6 @@ const oracledb = require('oracledb');
 const dbConfig = require('./dbconfig.js');
 const fs = require("fs");
 
-// const sqlite3 = require('sqlite3').verbose();
-
-//import Promise from 'bluebird';
 const sqlite = require('sqlite');
 
 async function run() {
@@ -74,7 +71,7 @@ where OBJETS.ID_OBJET between 1 and 100000
                 `INSERT INTO files (object_id, win_file_path, unix_file_path, file_size) VALUES (${item.ID_OBJET}, '${item.WIN_FILE_PATH}', '${item.UNIX_FILE_PATH}', ${fileSize});`);
         })
 
-        // { await sqliteConnection.all(`INSERT INTO files (object_id, path) VALUES (${item.ID_OBJET}, 'Business');`); })
+        // await sqliteConnection.all(`INSERT INTO files (object_id, path) VALUES (${item.ID_OBJET}, 'Business');`);
         // await sqliteConnection.all(`INSERT INTO files (object_id, path) VALUES (${result.rows[1].ID_OBJET}, 'Business');`);
 
         console.log("Column metadata: ", result.metaData);
